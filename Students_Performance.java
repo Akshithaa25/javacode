@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Performance {
+public class Students_Performance {
     private int[] mark; // array to store marks
 
     // Constructor to initialize the array
