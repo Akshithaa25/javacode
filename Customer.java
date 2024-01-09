@@ -1,42 +1,33 @@
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashSet;
 
-public class Customer {
+class Customer {
+    private String customerId;
     private String name;
     private String email;
     private String address;
-    public Customer(String name, String email, String address) {
+    private ArrayList<String> productIds;
+
+    public Customer(String customerId, String name, String email, String address) {
+        this.customerId = customerId;
         this.name = name;
         this.email = email;
         this.address = address;
-    }
-    // Getters and setters
-    public String getName() {
-        return name;
+        this.productIds = new ArrayList<>();
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public ArrayList<String> getProductIds() {
+        return null;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCustomerId() {
+        return null;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
+    // Getters and setters for the class properties
 }
 
- class Product {
+class Product {
     private String id;
     private String name;
     private double price;
@@ -47,33 +38,14 @@ public class Customer {
         this.price = price;
     }
 
-    // Getters and setters
     public String getId() {
-        return id;
+        return null;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
+    // Getters and setters for the class properties
 }
 
- class Order {
+class Order {
     private String id;
     private String customerId;
     private ArrayList<String> productIds;
@@ -84,48 +56,46 @@ public class Customer {
         this.productIds = productIds;
     }
 
-    // Getters and setters
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public String getProductIds() {
+        return null;
     }
 
     public String getCustomerId() {
-        return customerId;
+        return null;
     }
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
+    public String getId() {
+        return null;
     }
 
-    public ArrayList<String> getProductIds() 
-    {
-        return productIds;
-    }
-
-    public void setProductIds(ArrayList<String> productIds) {
-        this.productIds = productIds;
-    }
+    // Getters and setters for the class properties
 }
 
- class CustomerManager {
-    private ArrayList<Customer> customers;
-    private HashMap<String, Customer> customerMap;
-    private ArrayList<Product> products;
-    private HashMap<String, Product> productMap;
-    private ArrayList<Order> orders;
+ class Main {
+    public static void main(String[] args) {
+        Customer customer1 = new Customer("C01", "Akshi", "aksh@gmail.com", "123 Main St");
+        Customer customer2 = new Customer("C02", "vardhini", "vardhini@gmail.com", "456 area St");
 
-    public CustomerManager() {
-        customers = new ArrayList<>();
-        customerMap = new HashMap<>();
-        products = new ArrayList<>();
-        productMap = new HashMap<>();
-        orders = new ArrayList<>();
+        Product product1 = new Product("P001", "Product 1", 100.0);
+        Product product2 = new Product("P002", "Product 2", 200.0);
+
+        // Adding customers and products to their respective ArrayLists
+        customer1.getProductIds().add(product1.getId());
+        customer2.getProductIds().add(product2.getId());
+
+        // Adding orders to the order ArrayList
+        Order order1 = new Order("O001", customer1.getCustomerId(), customer1.getProductIds());
+        Order order2 = new Order("O002", customer2.getCustomerId(), customer2.getProductIds());
+
+        // Displaying order details
+        System.out.println("Order 1 details:");
+        System.out.println("Order ID: " + order1.getId());
+        System.out.println("Customer ID: " + order1.getCustomerId());
+        System.out.println("Product IDs: " + order1.getProductIds());
+
+        System.out.println("\nOrder 2 details:");
+        System.out.println("Order ID: " + order2.getId());
+        System.out.println("Customer ID: " + order2.getCustomerId());
+        System.out.println("Product IDs: " + order2.getProductIds());
     }
-
-    // Methods to add, get, and remove customers, products, and orders
-    // Additional methods for processing orders, such as calculating the total cost
 }
