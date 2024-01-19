@@ -1,30 +1,28 @@
 import java.util.ArrayList;
-import java.util.HashSet;
 
 class Customer {
     private String customerId;
     private String name;
     private String email;
     private String address;
-    private ArrayList<String> productIds;
+    private ArrayList<String> productIds; 
 
     public Customer(String customerId, String name, String email, String address) {
         this.customerId = customerId;
         this.name = name;
         this.email = email;
         this.address = address;
-        this.productIds = new ArrayList<>();
+        this.productIds = new ArrayList<String>();
     }
 
     public ArrayList<String> getProductIds() {
-        return null;
-    }
+        return productIds; 
 
     public String getCustomerId() {
-        return null;
+        throw new UnsupportedOperationException("Unimplemented method 'getCustomerId'");
     }
 
-    // Getters and setters for the class properties
+    
 }
 
 class Product {
@@ -39,10 +37,9 @@ class Product {
     }
 
     public String getId() {
-        return null;
+        return id; 
     }
 
-    // Getters and setters for the class properties
 }
 
 class Order {
@@ -56,22 +53,21 @@ class Order {
         this.productIds = productIds;
     }
 
-    public String getProductIds() {
-        return null;
+    public ArrayList<String> getProductIds() {
+        return productIds; 
     }
 
     public String getCustomerId() {
-        return null;
+        return customerId; 
     }
 
     public String getId() {
-        return null;
+        return id; 
     }
 
-    // Getters and setters for the class properties
 }
 
- class Main {
+class Main {
     public static void main(String[] args) {
         Customer customer1 = new Customer("C01", "Akshi", "aksh@gmail.com", "123 Main St");
         Customer customer2 = new Customer("C02", "vardhini", "vardhini@gmail.com", "456 area St");
@@ -98,4 +94,5 @@ class Order {
         System.out.println("Customer ID: " + order2.getCustomerId());
         System.out.println("Product IDs: " + order2.getProductIds());
     }
+}
 }
